@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.netease.wsl.mapper.UserMapper" >
+   <!-- <resultMap id="BaseResultMap" type="com.netease.wsl.meta.User" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="region" property="region" jdbcType="VARCHAR"/>
+    </resultMap>
+-->
+    <!--<sql id="Base_Column_List" >
+        id, name, age, ctm
+    </sql>-->
+
+    <!--<select id="getUserList" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM WSL_user
+    </select>-->
+
+    <select id="getUserById"  resultType="user" >
+        SELECT * FROM WSL_User
+        WHERE id = #{id}
+    </select>
+
+    <insert id="add" parameterType="user" >
+      INSERT INTO WSL_User
+      (id,name,region,age,sex)
+              VALUES (#{id},#{name},#{region},#{age},#{sex})
+
+    </insert>
+
+    <!--<update id="update" parameterType="java.util.Map" >
+        UPDATE
+        tb_user
+        SET
+        username = #{user.username},age = #{user.age}
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer" >
+        DELETE FROM
+        tb_user
+        WHERE
+        id = #{id}
+    </delete>-->
+</mapper>

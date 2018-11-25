@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+#数据库的设置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wsl
+    username: root
+    password: 19911029
+# redis 5的配置
+  redis:
+      host: 127.0.0.1
+      port: 6379
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: 1
+          max-idle: 8
+          min-idle: 0
+      timeout: 0
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+
+
+
